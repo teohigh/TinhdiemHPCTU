@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tính điểm HP CTU</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon">
+
+
+
+    <meta property="og:image" content="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/315966167_1329172617840836_3939653906436217354_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=BN00771KpeQAX9ZchJJ&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCw9tLg0laZpgGefiLHVw2br2Mg7RJRmvgkgb0cNy3XFg&oe=639DE05C" />
+    <meta property="og:description" content="Đây là một công cụ tính điểm trung bình học kì, KHÔNG phải là trang web chính thức của trường Đại Học Cần Thơ." />
+    <meta property="og:url"content="https://vitris128.github.io/TinhDiemHPCTU/" />
+    <meta property="og:title" content="Tính điểm trung bình học kì CTU" />
+    </head>
+    <body>
+        
+          <nav class="navbar has-background-link-dark has-text-light m-2" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <div class="typed-animation">
+                  </div>
+            </div>
+          </nav>
+        <section class="section">
+            <h1 class="title has-text-centered"> Tính điểm trung bình học kì CTU</h1>
+                
+                    <div class="columns">
+                        <div class="column">
+                            <div class="row-hp columns is-mobile">
+                                <div class="column is-7">
+                                    <label class="label">Điểm HP:</label>
+                                    <input placeholder="Nhập điểm HP:" class="input diemHP is-primary" type="number" name="" id="diemHP1" min="0" max="10">
+                
+                                </div>
+                                <div class="column is-4">
+                                    <label class="label">Số tín chỉ HP:</label>
+                                    <input placeholder="Nhập số TC:" class="input soTC is-primary" type="number" name="" id="soTC1" min="0" max="4">
+                
+                                </div>
+                            </div>
+                            <div class="row-hp columns is-mobile">
+                                <div class="column is-7">
+                                    <label class="label">Điểm HP:</label>
+                                    <input placeholder="Nhập điểm HP:" class="input diemHP is-primary" type="number" name="" id="diemHP2" min="0" max="10">
+                
+                                </div>
+                                <div class="column is-4">
+                                    <label class="label">Số tín chỉ HP:</label>
+                                    <input placeholder="Nhập số TC:" class="input soTC is-primary" type="number" name="" id="soTC2" min="0" max="4">
+                
+                                </div>
+                            </div>
+                            <div class="row-hp last columns is-mobile">
+                                <div class="column is-7">
+                                    <label class="label">Điểm HP:</label>
+                                    <input placeholder="Nhập điểm HP:" class="input diemHP is-primary" type="number" name="" id="diemHP3" min="0" max="10">
+                
+                                </div>
+                                <div class="column is-4">
+                                    <label class="label">Số tín chỉ HP:</label>
+                                    <input placeholder="Nhập số TC:" class="input soTC is-primary" type="number" name="" id="soTC3" min="0" max="4">
+                
+                                </div>
+                            </div>
+                            <div class="block"></div>
+                            <h1 class="subtitle has-text-weight-bold">***Chú ý: điểm nhập vào là điểm hệ 10.</h1>
+                        </div>
+                        <div class="column">
+                            <div class="column is-mobile">
+                                <button onclick="ShowCalculate()" id="calcBtn" class="button m-2 is-medium is-success">Tính</button>
+                                <button style="width: 206px;" onclick="CreateNewRow()" class=" button m-2 is-medium is-link">Thêm học phần</button>
+                                <button onclick="RemoveLastRow()" class="button m-2 is-medium is-link">Xoá học phần cuối</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="columns">
+                        
+                        <div class="column">
+                            <img src="./img/bangQuyDoi.png" alt="" class="img">
+                        </div>
+                <div class="column tet-column">
+                    <div class="tet-header box"><h1 class="title has-text-centered ">Đếm ngược ngày đến Tết Nguyên đán 2024</h1></div>
+                    <ul class="countdown">
+                        <li class="countdown-item"><span id="day-count" class="countdown-number days"></span><span class="countdown-text">Ngày</span></li>
+                        <li class="countdown-item"><span id="hour-count" class="countdown-number hours"></span><span class="countdown-text">Giờ</span></li>
+                        <li class="countdown-item"><span id="minute-count" class="countdown-number minutes"></span><span class="countdown-text">Phút</span></li>
+                        <li class="countdown-item"><span id="second-count" class="countdown-number seconds"></span><span class="countdown-text">Giây</span></li>
+                      </ul>
+
+                </div>
+            </div>
+        </section>
+        <button class="button is-info" onclick="topFunction()" id="backToTopBtn" title="Go to top">
+            <i class="fa-solid fa-up-long"></i>
+        </button>
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    Đây là một công cụ tính điểm trung bình học kì, <strong>KHÔNG</strong> phải là trang web chính thức của <i>trường Đại Học Cần Thơ</i>.
+                            Mọi thắc mắc hoặc góp ý, vui lòng gửi về các địa chỉ sau:
+                </p>
+                <div class="column footer-link">
+                    <a href="https://github.com/teohigh" class="footer-link-add">
+                        Github 
+                            <i class=" fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/tai.nhat.927758" class="footer-link-add">
+                        Facebook 
+                            <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="mailto:tainn.dv@gmail.com" class="footer-link-add">
+                        Email 
+                        <i class="fa-solid fa-envelope"></i>
+                        
+                    </a>
+                </div>
+            </div>
+
+          </footer>
+        <div id="modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Kết quả</p>
+                <button id="closeModalBtn1" class="delete" aria-label="close"></button>
+            </header>
+            <section id="modal-content" class="modal-card-body">
+                
+            </section>
+            <footer class="modal-card-foot">
+                <button id="closeModalBtn2" class="button" aria-label="close">Close</button>
+            </footer>
+            </div>
+        </div>
+    </body>
+  <script src="./js/script.js"></script>
